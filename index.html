@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems. What are the underlying key technologies and what key insights into IR problems are they able to give us? This full-day tutorial gives a clear overview of current tried-and-trusted neural methods in IR and how they benefit IR research and our understanding of IR problems. Additionally, we peek into the future by examining recently introduced paradigms as well as current challenges. Expect to learn about neural networks in semantic matching, ranking, user interaction, and response generation in a highly interactive tutorial.">
@@ -8,176 +9,197 @@
 
     <title>Neural Networks for Information Retrieval</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-	<style>
-/* Space out content a bit */
-body {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
+    <style>
+        /* Space out content a bit */
+        
+        body {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        /* Everything but the jumbotron gets side spacing for mobile first views */
+        
+        .header,
+        .footer {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+        /* Custom page header */
+        
+        .header {
+            padding-bottom: 1rem;
+            border-bottom: .05rem solid #e5e5e5;
+        }
+        /* Make the masthead heading the same height as the navigation */
+        
+        .header h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 3rem;
+        }
+        /* Custom page footer */
+        
+        .footer {
+            padding-top: 1.5rem;
+            color: #777;
+            border-top: .05rem solid #e5e5e5;
+        }
+        /* Main marketing message and sign up button */
+        
+        .jumbotron {
+            text-align: center;
+            border-bottom: .05rem solid #e5e5e5;
+        }
+        .jumbotron .btn {
+            padding: .75rem 1.5rem;
+            font-size: 1.0rem;
+        }
+        .jumbotron h1 {
+            font-size: 3.5em;
+        }
+        /* Supporting marketing content */
+        
+        .marketing {
+            margin: 3rem 0;
+        }
+        .marketing p + h4 {
+            margin-top: 1.5rem;
+        }
+        .marketing a {
+            color: #292b2c;
+        }
+        .marketing a:hover {
+            text-decoration: none;
+        }
+        /* Responsive: Portrait tablets and up */
+        
+        @media screen and (min-width: 48em) {
+            /* Remove the padding we set earlier */
+            
+            .header,
+            .marketing,
+            .footer {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            /* Space out the masthead */
+            
+            .header {
+                margin-bottom: 2rem;
+            }
+            /* Remove the bottom border on the jumbotron for visual effect */
+            
+            .jumbotron {
+                border-bottom: 0;
+            }
+        }
+        /* Center align the text within the three columns below the carousel */
+        
+        .marketing .col-lg-4 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .marketing h2 {
+            font-weight: normal;
+            font-size: 1.2em;
+        }
+        .marketing .col-lg-4 p {
+            margin-right: .75rem;
+            margin-left: .75rem;
+        }
+        @media (min-width: 40em) {
+            /* Bump up size of carousel content */
+            
+            .carousel-caption p {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+                line-height: 1.4;
+            }
+            .featurette-heading {
+                font-size: 50px;
+            }
+        }
+        @media (min-width: 62em) {
+            .featurette-heading {
+                margin-top: 7rem;
+            }
+        }
+    </style>
+</head>
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.footer {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-/* Custom page header */
-.header {
-  padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 3rem;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 1.5rem;
-  color: #777;
-  border-top: .05rem solid #e5e5e5;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.0rem;
-}
-.jumbotron h1 {
-  font-size: 3.5em;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 3rem 0;
-}
-.marketing p + h4 {
-  margin-top: 1.5rem;
-}
-
-.marketing a {
-	color: #292b2c;
-}
-
-.marketing a:hover {
-	text-decoration: none;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 48em) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 2rem;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: normal;
-  font-size: 1.2em;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-@media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
-}
-	</style>
-  </head>
-
-  <body>
+<body>
 
     <div class="container">
 
-      <div class="jumbotron">
-        <h1 class="display-3">Neural Networks for Information Retrieval</h1>
-        <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
-        <p><a class="btn btn-lg btn-info" href="http://sigir.org/sigir2017/" role="button">More information on the SIGIR website</a></p>
+        <div class="jumbotron">
+            <h1 class="display-3">Neural Networks for Information Retrieval</h1>
+            <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
+            <p><a class="btn btn-lg btn-info" href="http://sigir.org/sigir2017/" role="button">More information on the SIGIR website</a>
+            </p>
 
-    </div><!-- /.container -->
+        </div>
+        <!-- /.container -->
 
-    <div class="container marketing">
-      <h1 style="text-align: center">Organizers</h1>
-      <div class="row">
-        <div class="col-lg-4">
-          <a href="https://scholar.google.com/citations?user=OFLXW2UAAAAJ"><img class="rounded-circle" src="http://0.gravatar.com/avatar/62643c35e8d765ed27b9909a72293bfa?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
-          <h2>Tom Kenter</h2></a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="https://scholar.google.com/citations?user=i83g0E0AAAAJ&hl=en"><img class="rounded-circle" src="http://1.gravatar.com/avatar/a6a59cc77aafbfba0acb8231d34f03cb?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
-          <h2>Alexey Borisov</h2></a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="http://chri.stophr.be"><img class="rounded-circle" src="http://1.gravatar.com/avatar/76ba539ef192f442ca774aba39003c80?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
-          <h2>Christophe Van Gysel</h2></a>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-      <div class="row">
-        <div class="col-lg-4">
-          <a href="http://humanities.uva.nl/~dehghani/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/8d357c923d6d2ed63ab57fe779c1befc?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
-          <h2>Mostafa Dehghani</h2></a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="https://staff.fnwi.uva.nl/m.derijke/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/e95563926a4885fc43a51a0bdb888d18?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
-          <h2>Maarten de Rijke</h2></a>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="https://www.microsoft.com/en-us/research/people/bmitra/"><img class="rounded-circle" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/avatar_user__1467137535-180x180.png" alt="Generic placeholder image" width="100" height="100">
-          <h2>Bhaskar Mitra</h2></a>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    </div><!-- /.container -->
+        <div class="container marketing">
+            <h1 style="text-align: center">Organizers</h1>
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="https://scholar.google.com/citations?user=OFLXW2UAAAAJ"><img class="rounded-circle" src="http://0.gravatar.com/avatar/62643c35e8d765ed27b9909a72293bfa?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Tom Kenter</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://scholar.google.com/citations?user=i83g0E0AAAAJ&hl=en"><img class="rounded-circle" src="http://1.gravatar.com/avatar/a6a59cc77aafbfba0acb8231d34f03cb?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Alexey Borisov</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="http://chri.stophr.be"><img class="rounded-circle" src="http://1.gravatar.com/avatar/76ba539ef192f442ca774aba39003c80?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Christophe Van Gysel</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="http://humanities.uva.nl/~dehghani/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/8d357c923d6d2ed63ab57fe779c1befc?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Mostafa Dehghani</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://staff.fnwi.uva.nl/m.derijke/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/e95563926a4885fc43a51a0bdb888d18?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Maarten de Rijke</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://www.microsoft.com/en-us/research/people/bmitra/"><img class="rounded-circle" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/avatar_user__1467137535-180x180.png" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Bhaskar Mitra</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
+        <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
 </html>
