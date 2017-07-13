@@ -153,6 +153,14 @@
             #fancy-header {
                 display: block;
             }
+
+            div.jumbotron {
+                top: -50px;
+            }
+
+            div.jumbotron h1 {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -175,7 +183,7 @@
       </div>
     </nav>
 
-    <div class="container" style="min-width: 600px; padding: 0">
+    <div class="container" style="padding: 0">
         <div id="fancy-header" style="background: url(images/background-new.png) scroll no-repeat center top; background-size: 100%; background-position: 0px -180px; height: 300px; text-align: center; margin: 0 auto 0 auto; padding: 0; position: relative; z-index: 1000">
             <div style="width: 720px; display: block; margin: 0 auto 0 auto; position: relative; top: 35px">
                 <form action="http://www.google.com">
@@ -191,7 +199,8 @@
             </div>
         </div>
 
-        <div class="jumbotron" style="position: relative; top: -50px; z-index: 0; padding-bottom: 1em">
+        <div class="jumbotron" style="position: relative; z-index: 0; padding-bottom: 1em">
+            <h1 style="font-size: 2em">Neural Networks for Information Retrieval</h1>
             <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
             <p><a class="btn btn-lg btn-success" href="http://sigir.org/sigir2017/" role="button">Register now on the SIGIR website</a></p>
             <h5>Full-day tutorial at SIGIR 2017 on August 7, 2017</h5>
