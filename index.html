@@ -32,6 +32,11 @@
 
     <style>
         /* Space out content a bit */
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         
         body {
             padding-top: 50px;
@@ -79,8 +84,18 @@
         }
 
         th.timeslot {
-            font-family: Consolas, Lucida Console, monospace;
+            display: none;
         }
+
+        td.timeslot {
+            font-family: Consolas, Lucida Console, monospace;
+            display: none;
+        }
+
+        tr.break {
+            display: none;
+        }
+
         /* Supporting marketing content */
         
         .marketing {
@@ -180,7 +195,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#schedule">Schedule</a>
+            <a class="nav-link" href="#schedule">Table of contents</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#organizers">Organizers</a>
@@ -214,14 +229,14 @@
         <!-- /.container -->
 
         <div id="schedule" class="container marketing">
-            <h1 style="text-align: center">Schedule</h1>
+            <h1 style="text-align: center">Table of contents</h1>
 
-            <p>The tutorial is organized in 8 parts as described below (times are indicative). For more details, see the <a href="https://arxiv.org/abs/1707.04242" target="_new">overview paper</a> on arXiv.</p>
+            <p>The tutorial is organized in 8 parts as described below. For more details, see the <a href="https://arxiv.org/abs/1707.04242" target="_new">overview paper</a> on arXiv.</p>
 
             <table class="table">
               <thead>
                 <tr>
-                  <th>Time slot</th>
+                  <th class="timeslot">Time slot</th>
                   <th>Topic</th>
                   <th>Presenters</th>
                   <th />
@@ -229,73 +244,73 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="timeslot">09:00 - 09:05</th>
+                  <td scope="row" class="timeslot">09:00 - 09:05</th>
                   <td>Introduction</td>
                   <td>Tom Kenter</td>
                   <td><a href="slides/01_Introduction.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">09:05 - 10:00</th>
+                  <td scope="row" class="timeslot">09:05 - 10:00</th>
                   <td>Preliminaries</td>
                   <td>Tom Kenter, Maarten de Rijke</td>
                   <td><a href="slides/02_Preliminaries.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">10:00 - 10:30</th>
+                  <td scope="row" class="timeslot">10:00 - 10:30</th>
                   <td>Text Matching I</td>
                   <td>Alexey Borisov, Bhaskar Mitra</td>
                   <td><a href="slides/03_TextMatchingI.pdf" target="_blank">section slides</a></td>
                 </tr>
-                <tr>
-                  <th scope="row" class="timeslot">10:30 - 10:50</th>
+                <tr class="break">
+                  <td scope="row" class="timeslot">10:30 - 10:50</th>
                   <td>Coffee break</td>
                   <td />
                   <td />
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">10:50 - 11:20</th>
+                  <td scope="row" class="timeslot">10:50 - 11:20</th>
                   <td>Text Matching I (cont'd)</td>
                   <td>Alexey Borisov, Bhaskar Mitra</td>
                   <td><a href="slides/03_TextMatchingI.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">11:20 - 12:20</th>
+                  <td scope="row" class="timeslot">11:20 - 12:20</th>
                   <td>Text Matching II</td>
                   <td>Mostafa Deghani, Christophe Van Gysel</td>
                   <td><a href="slides/04_TextMatchingII.pdf" target="_blank">section slides</a></td>
                 </tr>
-                <tr>
-                  <th scope="row" class="timeslot">12:20 - 14:00</th>
+                <tr class="break">
+                  <td scope="row" class="timeslot">12:20 - 14:00</th>
                   <td>Lunch break</td>
                   <td />
                   <td />
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">14:00 - 14:45</th>
+                  <td scope="row" class="timeslot">14:00 - 14:45</th>
                   <td>Learning to Rank</td>
                   <td>Christophe Van Gysel, Bhaskar Mitra</td>
                   <td><a href="slides/05_LearningToRank.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">14:45 - 15:30</th>
+                  <td scope="row" class="timeslot">14:45 - 15:30</th>
                   <td>Modeling User Behavior</td>
                   <td>Alexey Borisov, Maarten de Rijke</td>
                   <td><a href="slides/06_ModelingUserBehavior.pdf" target="_blank">section slides</a></td>
                 </tr>
-                <tr>
-                  <th scope="row" class="timeslot">15:30 - 15:50</th>
+                <tr class="break">
+                  <td scope="row" class="timeslot">15:30 - 15:50</th>
                   <td>Coffee break</td>
                   <td />
                   <td />
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">15:50 - 16:35</th>
+                  <td scope="row" class="timeslot">15:50 - 16:35</th>
                   <td>Generating Responses</td>
                   <td>Mostafa Deghani, Tom Kenter</td>
                   <td><a href="slides/07_GeneratingResponses.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="timeslot">16:35 - 17:20</th>
+                  <td scope="row" class="timeslot">16:35 - 17:20</th>
                   <td>Wrap Up</td>
                   <td>All presenters</td>
                   <td><a href="slides/08_WrapUp.pdf" target="_blank">section slides</a></td>
@@ -304,6 +319,23 @@
             </table>
 
             <p><a href="slides/References.pdf" target="_blank">References</a> &mdash; <a href="slides/NN4IR.pdf" target="_blank">All slides</a></p>
+
+            <h2>Citation</h2>
+
+            <p>If you wish to refer to the tutorial in your scientific publication, please refer to our <a href="https://arxiv.org/abs/1707.04242" target="_new">overview paper</a>:
+
+            <div class="card">
+            <div class="card-block" style="background: #F5F5F5">
+            <pre class="card-text"><code>@inproceedings{Kenter2017nn4ir,
+  Author = {Kenter, Tom and Borisov, Alexey and Van Gysel, Christophe and Dehghani, Mostafa and de Rijke, Maarten and Mitra, Bhaskar},
+  Booktitle = {SIGIR 2017},
+  Organization = {ACM},
+  Pages = {1403--1406},
+  Title = {Neural Networks for Information Retrieval},
+  Year = {2017}}</code></pre>
+            </div>
+            </div>
+            </p>
 
         </div>
 
