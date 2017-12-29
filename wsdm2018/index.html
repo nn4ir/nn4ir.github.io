@@ -7,15 +7,7 @@
     <meta name="description" content="Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems. What are the underlying key technologies and what key insights into IR problems are they able to give us? This full-day tutorial gives a clear overview of current tried-and-trusted neural methods in IR and how they benefit IR research and our understanding of IR problems. Additionally, we peek into the future by examining recently introduced paradigms as well as current challenges. Expect to learn about neural networks in semantic matching, ranking, user interaction, and response generation in a highly interactive tutorial.">
     <meta name="author" content="Tom Kenter, Alexey Borisov, Christophe van Gysel, Mostafa Dehghani, Maarten de Rijke, Bhaskar Mitra">
 
-    <meta property="og:title" content="Neural Networks for Information Retrieval" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://nn4ir.com/" />
-    <meta property="og:image" content="http://nn4ir.com/images/screenshot.png" />
-    <meta name="og:description" content="Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems. What are the underlying key technologies and what key insights into IR problems are they able to give us? This full-day tutorial gives a clear overview of current tried-and-trusted neural methods in IR and how they benefit IR research and our understanding of IR problems. Additionally, we peek into the future by examining recently introduced paradigms as well as current challenges. Expect to learn about neural networks in semantic matching, ranking, user interaction, and response generation in a highly interactive tutorial.">
-
     <title>Neural Networks for Information Retrieval</title>
-
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -25,21 +17,15 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
         ga('create', 'UA-72656975-3', 'auto');
         ga('send', 'pageview');
     </script>
 
     <style>
         /* Space out content a bit */
-
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
         
         body {
-            padding-top: 50px;
+            padding-top: 1.5rem;
             padding-bottom: 1.5rem;
         }
         /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -76,26 +62,12 @@
             border-bottom: .05rem solid #e5e5e5;
         }
         .jumbotron .btn {
-            padding: .25rem 0.75rem;
+            padding: .75rem 1.5rem;
             font-size: 1.0rem;
         }
         .jumbotron h1 {
             font-size: 3.5em;
         }
-
-        th.timeslot {
-            display: none;
-        }
-
-        td.timeslot {
-            font-family: Consolas, Lucida Console, monospace;
-            display: none;
-        }
-
-        tr.break {
-            display: none;
-        }
-
         /* Supporting marketing content */
         
         .marketing {
@@ -104,19 +76,13 @@
         .marketing p + h4 {
             margin-top: 1.5rem;
         }
-        div#organizers a {
+        .marketing a {
             color: #292b2c;
         }
         .marketing a:hover {
             text-decoration: none;
         }
         /* Responsive: Portrait tablets and up */
-
-        @media screen and (min-width: 576px) {
-            .jumbotron {
-                padding: 2rem 1rem;
-            }
-        }
         
         @media screen and (min-width: 48em) {
             /* Remove the padding we set earlier */
@@ -145,7 +111,6 @@
             text-align: center;
         }
         .marketing h2 {
-            margin-top: 5px;
             font-weight: normal;
             font-size: 1.2em;
         }
@@ -153,11 +118,6 @@
             margin-right: .75rem;
             margin-left: .75rem;
         }
-
-        #fancy-header {
-            display: none;
-        }
-
         @media (min-width: 40em) {
             /* Bump up size of carousel content */
             
@@ -178,91 +138,77 @@
     </style>
 </head>
 
-<style>
-div.editions {
-    height: 200px;
-    margin: 0 auto 0 auto;
-    width: 100%;
-    padding-left: 5px;
-}
-
-div.editions h2 {
-    font-size: 1.5em;
-    font-weight: 300;
-}
-
-div.editions span.separator {
-    display: none;
-}
-
-div.editions div.edition {
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    padding: 0 15px 0 15px;
-}
-
-div.editions div.edition a div.inner {
-    text-align: center;
-    height: 150px;
-    vertical-align: bottom;
-    display: table-cell;
-}
-
-@media screen and (min-width: 750px) {
-    div.editions {
-        width: 750px;
-    }
-
-    div.editions span.separator {
-        display: inline;
-    }
-}
-
-</style>
-
 <body>
-    <div class="jumbotron">
-        <h1 class="display-3">Neural Networks for Information Retrieval</h1>
-        <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
-    </div>
 
-    <div class="editions">
-        <div style="display: inline-block; width: 425px">
-            <h2>Upcoming editions</h2>
-            <div class="edition">
-                <a href="ecir2018">
-                    <div class="inner">
-                        <img src="ecir2018/images/ecir2018.png" alt="Neural Networks for Information Retrieval at ECIR 2018" width="175px" /></br >
-                        ECIR 2018
-                    </div>
-                </a>
-            </div>
-            <div class="edition">
-                <a href="wsdm2018">
-                    <div class="inner">
-                        <img src="wsdm2018/images/wsdm2018.png" alt="Neural Networks for Information Retrieval at WSDM 2018" width="175px" /></br >
-                        WSDM 2018
-                    </div>
-                </a>
-            </div>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-3">Neural Networks for Information Retrieval</h1>
+            <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
+            <p><a class="btn btn-lg btn-info" href="wsdm-conference.org/2018/" role="button">More information on the WSDM website</a>
+            </p>
+
         </div>
-        <span class="separator">
-            <div style="height: 200px; display: inline-block; vertical-align: top; padding: 0 5px 0 0px"></div>
-            <div style="border-left: 1px solid #000; height: 200px; display: inline-block; vertical-align: top; padding: 0 25px 0 0"></div>
-        </span>
-        <div style="display: inline-block; width: 250px">
-            <h2>Past editions</h2>
-            <div class="edition">
-                <a href="sigir2017">
-                    <div class="inner">
-                        <img src="sigir2017/images/sigir2017.png" alt="Neural Networks for Information Retrieval at SIGIR 2017" width="75px" /><br />
-                        SIGIR 2017
-                    </div>
-                </a>
+        <!-- /.container -->
+
+        <div class="container marketing">
+            <h1 style="text-align: center">Organizers</h1>
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="https://scholar.google.com/citations?user=OFLXW2UAAAAJ"><img class="rounded-circle" src="http://0.gravatar.com/avatar/62643c35e8d765ed27b9909a72293bfa?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Tom Kenter</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://scholar.google.com/citations?user=i83g0E0AAAAJ&hl=en"><img class="rounded-circle" src="http://1.gravatar.com/avatar/a6a59cc77aafbfba0acb8231d34f03cb?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Alexey Borisov</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="http://chri.stophr.be"><img class="rounded-circle" src="http://1.gravatar.com/avatar/76ba539ef192f442ca774aba39003c80?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Christophe Van Gysel</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
             </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="http://humanities.uva.nl/~dehghani/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/8d357c923d6d2ed63ab57fe779c1befc?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Mostafa Dehghani</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://staff.fnwi.uva.nl/m.derijke/"><img class="rounded-circle" src="http://2.gravatar.com/avatar/e95563926a4885fc43a51a0bdb888d18?s=180&d=mm&r=g" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Maarten de Rijke</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <a href="https://www.microsoft.com/en-us/research/people/bmitra/"><img class="rounded-circle" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/avatar_user__1467137535-180x180.png" alt="Generic placeholder image" width="100" height="100">
+                        <h2>Bhaskar Mitra</h2>
+                    </a>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
         </div>
-    </div>
+        <!-- /.container -->
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
 </html>
