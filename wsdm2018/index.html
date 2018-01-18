@@ -68,6 +68,15 @@
         .jumbotron h1 {
             font-size: 3.5em;
         }
+
+        td.timeslot {
+            font-family: Consolas, Lucida Console, monospace;
+        }
+
+        tr.break {
+            color: #999999;
+        }
+
         /* Supporting marketing content */
         
         .marketing {
@@ -159,7 +168,108 @@
             </p>
 
         </div>
-        <!-- /.container -->
+
+        <div id="schedule" class="container marketing">
+            <h1 style="text-align: center">Preliminary schedule</h1>
+
+            <p>The tutorial will be organized in 8 parts as described below. For more details, see the <a href="https://arxiv.org/abs/1801.02178" target="_new">overview paper</a> on arXiv.</p>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="timeslot">Time slot</th>
+                  <th>Topic</th>
+                  <!-- <th>Presenters</th> -->
+                  <!-- <th /> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row" class="timeslot">09:00 - 09:45</th>
+                  <td class="topic">Preliminaries</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">09:45 - 10:30</th>
+                  <td class="topic">Semantic matching</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">10:30 - 11:00</th>
+                  <td>Coffee break</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">11:00 - 11:45</th>
+                  <td class="topic">Learning to rank</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">11:45 - 12:30</th>
+                  <td class="topic">Entities</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">12:30 - 14:00</th>
+                  <td>Lunch break</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">14:00 - 14:45</th>
+                  <td class="topic">Recommender systems</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">14:45 - 15:30</th>
+                  <td class="topic">Modeling User Behavior</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">15:30 - 16:00</th>
+                  <td>Coffee break</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">16:00 - 16:45</th>
+                  <td class="topic">Generating Responses</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">16:45 - 17:30</th>
+                  <td class="topic">Industry insights</td>
+                  <!-- <td /> -->
+                  <!-- <td /> -->
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Citation</h2>
+
+            <p>If you wish to refer to the tutorial in your scientific publication, please refer to our <a href="https://arxiv.org/abs/1801.02178" target="_new">overview paper</a>:
+
+            <div class="card">
+            <div class="card-block" style="background: #F5F5F5">
+            <pre class="card-text"><code>@inproceedings{Kenter2018nn4irwsdm,
+  Author = {Kenter, Tom and Borisov, Alexey and Van Gysel, Christophe and Dehghani, Mostafa and de Rijke, Maarten and Mitra, Bhaskar},
+  Booktitle = {WSDM 2018},
+  Organization = {ACM},
+  Title = {Neural Networks for Information Retrieval},
+  Year = {2018}}</code></pre>
+            </div>
+            </div>
+            </p>
+
+        </div>
 
         <div class="container marketing">
             <h1 style="text-align: center">Organizers</h1>
@@ -200,7 +310,6 @@
             </div>
             <!-- /.row -->
         </div>
-        <!-- /.container -->
 
         <!-- Bootstrap core JavaScript
     ================================================== -->
