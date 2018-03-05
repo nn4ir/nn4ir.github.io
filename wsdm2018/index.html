@@ -82,12 +82,21 @@
             font-size: 3.5em;
         }
 
+        th.timeslot {
+            display: none;
+        }
+
+        td.timeslot {
+            font-family: Consolas, Lucida Console, monospace;
+            display: none;
+        }
+
         td.timeslot {
             font-family: Consolas, Lucida Console, monospace;
         }
 
         tr.break {
-            color: #999999;
+            display: none;
         }
 
         /* Supporting marketing content */
@@ -191,7 +200,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#schedule">Tutorial schedule</a>
+            <a class="nav-link" href="#schedule">Table of contents</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#organizers">Organizers</a>
@@ -219,16 +228,14 @@
         <div class="jumbotron" style="position: relative; z-index: 0; padding-bottom: 1em">
             <h1 class="display-3">Neural Networks for Information Retrieval</h1>
             <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
-            <p><a class="btn btn-lg btn-info" href="http://wsdm-conference.org/2018/" role="button">More information on the WSDM website</a>
-            </p>
-
+            <p><a class="btn btn-lg btn-success" href="slides/NN4IR.pdf" target="_blank" role="button" style="padding-top: .50rem; padding-bottom: .50rem; padding-left: 1rem"><img src="images/glyphicons-201-download.png" /> &nbsp; <span style="display: inline; vertical-align: text-top;">Download slides (PDF, 30MB)</span></a></p>
             <h5>Full-day tutorial at WSDM 2018 on February 5, 2018</h5>
         </div>
 
         <div id="schedule" class="container marketing">
-            <h1 style="text-align: center">Tutorial schedule</h1>
+            <h1 style="text-align: center">Table of contents</h1>
 
-            <p>The tutorial will be organized in 8 parts as described below. For more details, see the <a href="https://arxiv.org/abs/1801.02178" target="_new">overview paper</a> on arXiv.</p>
+            <p>The tutorial is organized in 10 parts as described below. For more details, see the <a href="https://arxiv.org/abs/1801.02178" target="_new">overview paper</a> on arXiv.</p>
 
             <table class="table">
               <thead>
@@ -289,8 +296,8 @@
                   <td><a href="slides/06_Entities.pdf" target="_blank">section slides</a></td>
                 </tr>
                 <tr>
-                  <td scope="row" class="timeslot">14:45 - 15:00</th>
-                  <td class="topic">Generating Responses (Part I)</td>
+                  <td scope="row" class="timeslot">14:45 - 15:30</th>
+                  <td class="topic">Generating Responses</td>
                   <td>Tom Kenter</td>
                   <td><a href="slides/07_GeneratingResponses.pdf" target="_blank">section slides</a></td>
                 </tr>
@@ -300,7 +307,7 @@
                   <td />
                   <td />
                 </tr>
-                <tr>
+                <tr style="display: none">
                   <td scope="row" class="timeslot">15:30 - 16:00</th>
                   <td class="topic">Generating Responses (Part II)</td>
                   <td>Tom Kenter</td>
