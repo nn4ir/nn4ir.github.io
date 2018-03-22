@@ -30,8 +30,13 @@
     <style>
         /* Space out content a bit */
         
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
         body {
-            padding-top: 1.5rem;
+            padding-top: 50px;
             padding-bottom: 1.5rem;
         }
         /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -74,6 +79,15 @@
         .jumbotron h1 {
             font-size: 3.5em;
         }
+
+        td.timeslot {
+            font-family: Consolas, Lucida Console, monospace;
+        }
+
+        tr.break {
+            color: #999999;
+        }
+
         /* Supporting marketing content */
         
         .marketing {
@@ -82,7 +96,7 @@
         .marketing p + h4 {
             margin-top: 1.5rem;
         }
-        .marketing a {
+        div#organizers a {
             color: #292b2c;
         }
         .marketing a:hover {
@@ -144,22 +158,142 @@
     </style>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4 fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">NN4IR@ECIR2018</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#schedule">Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#organizers">Organizers</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <div class="container">
+    <div class="container" style="padding: 0">
+        <div id="fancy-header" style="background: url(images/background-new.png) scroll no-repeat center top; background-size: 100%; background-position: 0px -180px; height: 300px; text-align: center; margin: 0 auto 0 auto; padding: 0; position: relative; z-index: 1000">
+            <div style="width: 720px; display: block; margin: 0 auto 0 auto; position: relative; top: 35px">
+                <form action="https://www.bing.com/search">
+                <input type="text" class="form-control" id="search-input" name="q" value="Neural Networks for Information Retrieval" autocomplete="off" style="width: 600px; height:55px; font-weight: bold; font-size: 28px; color: black" />
+                <div style="position: relative; left: 490px; top: -55px">
+                    <button class="btn btn-default" style="padding: 10px 25px 0 0; position: absolute; top: 0; left: 122.5px; margin-top: 0px; background: #363636">
+                         <img src="images/magnifying_glass.png" width="67px" />
+                    </button>
+                    <img src="images/nn.png" width="188px" style="position: absolute; top: 42px; left: 1px" />
+                </div>
+                </form>
+                <img src="images/ecir2018.png" width="170px" style="position: relative; left: -222px; top: 140px" />
+            </div>
+        </div>
+
         <div class="jumbotron">
             <h1 class="display-3">Neural Networks for Information Retrieval</h1>
             <p class="lead">Machine learning plays an important role in many aspects of modern IR systems, and deep learning is applied to all of those. The fast pace of modern-day research into deep learning has given rise to many different approaches to many different IR problems.</p>
             <p><a class="btn btn-lg btn-info" href="https://www.ecir2018.org/" role="button">More information on the ECIR website</a>
             </p>
-
+            <h5>Full-day tutorial at ECIR 2018 on March 26, 2018</h5>
         </div>
         <!-- /.container -->
 
         <div id="schedule" class="container marketing">
+            <h1 style="text-align: center">Schedule</h1>
+
+            <p>The tutorial is organized in 9 parts as described below. For more details, see the <a href="ecir2018-tutorial-nn4ir.pdf" target="_new">overview paper</a>.</p>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="timeslot">Time slot</th>
+                  <th>Topic</th>
+                  <th>Presenters</th>
+                  <th />
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row" class="timeslot">09:30 - 10:15</th>
+                  <td class="topic">Introduction &amp; preliminaries</td>
+                  <td>Tom Kenter</td>
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">10:15 - 11:00</th>
+                  <td class="topic">Semantic matching</td>
+                  <td>Christophe Van Gysel</td>
+                  <td />
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">11:00 - 11:30</th>
+                  <td>Coffee break</td>
+                  <td />
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">11:30 - 12:15</th>
+                  <td class="topic">Learning to rank</td>
+                  <td>Bhaskar Mitra</td>
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">12:15 - 13:00</th>
+                  <td class="topic">Entities</td>
+                  <td>Tom Kenter, Christophe Van Gysel</td>
+                  <td />
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">13:00 - 14:30</th>
+                  <td>Lunch break</td>
+                  <td />
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">14:30 - 15:15</th>
+                  <td class="topic">Modeling user behavior</td>
+                  <td>Maarten de Rijke</td>
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">15:15 - 16:00</th>
+                  <td class="topic">Generating Responses</td>
+                  <td>Tom Kenter</td>
+                  <td />
+                </tr>
+                <tr class="break">
+                  <td scope="row" class="timeslot">16:00 - 16:30</th>
+                  <td>Coffee break</td>
+                  <td />
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">16:30 - 17:15</th>
+                  <td class="topic">Recommender systems</td>
+                  <td>Maarten de Rijke</td>
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">17:15 - 17:45</th>
+                  <td class="topic">Industry insights</td>
+                  <td>Tom Kenter</td>
+                  <td />
+                </tr>
+                <tr>
+                  <td scope="row" class="timeslot">17:45 - 18:30</th>
+                  <td class="topic">Q + A</td>
+                  <td>Tom Kenter, Christophe Van Gysel, Maarten de Rijke, Bhaskar Mitra</td>
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+
             <h2>Citation</h2>
 
-            <p>If you wish to refer to the tutorial in your scientific publication, please refer to our overview paper:
+            <p>If you wish to refer to the tutorial in your scientific publication, please refer to our <a href="ecir2018-tutorial-nn4ir.pdf" target="_new">overview paper</a>:</p>
 
             <div class="card">
             <div class="card-block" style="background: #F5F5F5">
@@ -175,7 +309,7 @@
 
         </div>
 
-        <div class="container marketing">
+        <div id="organizers" class="container marketing">
             <h1 style="text-align: center">Organizers</h1>
             <div class="row">
                 <div class="col-lg-2">
